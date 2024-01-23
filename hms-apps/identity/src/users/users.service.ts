@@ -7,9 +7,13 @@ import {
   UpdateUserDto,
   Users,
 } from '@common/hms-lib';
-import { User } from '@common/hms-lib';
+import { User as UserProps } from '@common/hms-lib';
 import { randomUUID } from 'crypto';
 import { Observable, Subject } from 'rxjs';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
+import { User } from './entities/user.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class UsersService implements OnModuleInit {
